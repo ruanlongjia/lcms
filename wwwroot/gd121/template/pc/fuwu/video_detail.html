@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	 <style type="text/css">
+    video {
+        width: 100%;
+        height: auto;
+    }
+
+    ul {
+        width: 2000px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    li {
+        list-style: none;
+        float: left;
+        margin-left: 15px;
+        width: 130px;
+    }
+    .box{width: 800px; height: 600px;margin: 50px;}
+    </style>
+       <script src="/gd121/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript">
+    var contextpath='${contextpath}';
+    var contentId='${contentidF}';
+   // $.get(contextpath + "/contentsController.do?addPv&contentId="+contentId);
+    </script>
+
+
+    <script src="/static/js/front.js"></script>
+</head>
+<body>
+	<#assign site1 ="/gd121">
+
+
+    <#include "/wwwroot/${site1}/template/pc/section/header.html">
+        <!-- head -->
+        <div id="head">
+           <img src="${site1}/images/logo.jpg" alt="">
+        </div>
+        <!-- head end  -->
+       
+<!-- nav -->
+        <div>
+        
+        	<#assign name ="catalogTag">
+        	
+<#assign catalogTag =newTag("${name}")>
+
+            <ul>
+            	 <li><a href="http://localhost/gd121/index.shtml" style="width:54px;">首页</a></li>
+                <#assign catalog=catalogTag( "{'levels':'self','name':'402881f4608b6d29016090cb87b30069'}")>
+                    <#if catalog?exists>
+                        <li><a href="${site1}${catalog.url!'javascript:void(0);'}" style="width:54px;">${catalog.name!''}</a></li>
+                    </#if>
+                    <#assign catalog=catalogTag( "{'levels':'self','name':'402881f4608b6d29016090ca77a80062'}")>
+                        <#if catalog?exists>
+                            <li><a href="${site1}${catalog.url!'javascript:void(0);'}" style="width:54px;">${catalog.name!''}</a></li>
+                        </#if>
+                        <#assign catalog=catalogTag( "{'levels':'self','name':'402881f4608b6d29016090c7743d0033'}")>
+                            <#if catalog?exists>
+                                <li><a href="${site1}${catalog.url!'javascript:void(0);'}" style="width:54px;"><b>${catalog.name!''}</b></a></li>
+                            </#if>
+                            <#assign catalog=catalogTag( "{'levels':'self','name':'402881f4608b6d29016090c88a28005f'}")>
+                                <#if catalog?exists>
+                                    <li><a href="${site1}${catalog.url!'javascript:void(0);'}" style="width:54px;">${catalog.name!''}</a></li>
+                                </#if>
+                                
+                                 <#assign catalog=catalogTag( "{'levels':'self','name':'402881f46095a5a6016095d3f1050002'}")>
+                                <#if catalog?exists>
+                                    <li><a href="${site1}${catalog.url!'javascript:void(0);'}" style="width:54px;">${catalog.name!''}</a></li>
+                                </#if>
+            </ul>
+        </div>
+        <!-- nav end -->
+
+<div class="box">
+
+     
+
+
+
+
+
+
+<div class="div_line1"></div>
+    <input type="hidden" id="url" value="${videoF.videourl}">
+        <div id="video" style=" width: 800px; height: auto;">
+            <div id="a1"></div>
+        </div> 
+        <script type="text/javascript">
+        $(function() {
+            Cms.loadPlayer('a1','${videoF.videourl}');
+        });
+    </script> 
+<div class="bc">
+</div>
+</div>
+
+
+
+
+        <!--footer-->
+        <div class="footer">
+        	
+            <#include "/wwwroot/gd121/template/pc/section/footer.html">
+                <div>
+                    <img src="/gd121/images/foot.png" alt="" style="width: 1000px">
+                </div>
+                <!-- 页脚 -->
+        </div>
+        <!--footer end-->
+</body>
+</html>
